@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "pwa-chrome",
+            "name": "https://hoadesign.net",
+            "request": "launch",
+            "url": "https://hoadesign.net"
+        }
+    ]
+}
