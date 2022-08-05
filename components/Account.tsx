@@ -12,7 +12,7 @@ import YourTicket from "./Account_Details/YourTicket";
 import FindSup from "./Account_Details/FindSup";
 import Reply from "./Account_Details/Reply";
 
- function AccountHome({navigation}){
+ function AccountHome( {navigation} ) {
     return(
         <>
     <ScrollView style = {styles.headBar}>
@@ -176,8 +176,9 @@ const styles = StyleSheet.create({
         paddingTop: 10,
     },
     iconStyles: {
-        flex: 1,
-        flexDirection: "row"
+        position: "absolute",
+        right: 0,
+        paddingTop: 10
     },
     textHeading: {
         fontWeight: "500",

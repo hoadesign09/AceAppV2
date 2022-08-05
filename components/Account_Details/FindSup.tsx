@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {View, Text, StyleSheet, Dimensions, SafeAreaView} from "react-native";
+import {View, Text, StyleSheet, Dimensions, TouchableOpacity ,SafeAreaView} from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import SearchBar from "react-native-platform-searchbar";
 import  Icon  from "react-native-vector-icons/FontAwesome";

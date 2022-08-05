@@ -26,7 +26,7 @@ export default function WishList ( ) {
         getWishList();
     }, [])
 
-
+    
 
     return(
         <><SafeAreaView style={styles.SearchBar}>

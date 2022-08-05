@@ -1,12 +1,65 @@
 import { getStateFromPath } from "@react-navigation/native";
 import SearchBar from 'react-native-platform-searchbar';
-import React , {useState} from "react";
-import {Text, View, ScrollView, StyleSheet, Image, Dimensions} from "react-native";
+import React , {useEffect, useState} from "react";
+import {Text, View, ScrollView, StyleSheet, Image, Dimensions, FlatList, RefreshControl} from "react-native";
 import Swiper from "react-native-swiper";
 const {width} = Dimensions.get("window");
 
 export default function Home() {
     const [value, setValue] = useState('');
+    const [data, setData] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
+   // const [onRefresh, setOnRefresh] = useState(false)
+    const [data2, setData2] = useState([])
+    const [data3, setData3] = useState([])
+
+
+
+    const getPost = () => {
+        fetch("https://hoadesign.net/API/Posts.json")
+        .then((response) => response.json())
+        .then((json) => setData(json))
+        .catch((error) => {
+            console.log("error: ", error)
+        }).finally(() => setIsLoading(false))
+    }
+    const getOuts = () => {
+        fetch("https://hoadesign.net/API/outstanding.json")
+        .then((response) => response.json())
+        .then((json) => setData2(json))
+        .catch((error) => {
+            console.log("error:", error)
+        }).finally(() => setIsLoading(false))
+    }
+    const getRecomPost = () => {
+        fetch("https://hoadesign.net/API/recompost.json")
+        .then((response) => response.json())
+        .then((json) => setData3(json))
+        .catch((error) =>{
+            console.log("error:", error)
+        }).finally(() => setIsLoading(false))
+    }
+
+    useEffect(() =>{
+        getPost();
+    }, [])
+    useEffect(() => {
+        getOuts();
+    }, [])
+    useEffect(() =>{
+        getRecomPost();
+    }, [])
+
+    // const Call_RefreshControl = () => {
+ 
+    //     setData([]);
+     
+    //     getPost();
+     
+    //   }
+
+
+
     return(
         <><View style = {styles.SearchBar}>
             <SearchBar
@@ -56,81 +109,62 @@ export default function Home() {
 
             <Text style = {styles.headingText}>Mới nhất</Text>
 
-            <ScrollView
-                horizontal = {true}
+            <FlatList
+                //style = {styles.hozalSlide2} 
                 showsHorizontalScrollIndicator = {false}
-            >
-                <View style = {styles.hozalSlide}>
-                    <Image
-                    style = {styles.imageSlideList}
-                    source = {require("../assets/image4.png")}
-                    />
-                    <Text>ACECOOK VIỆT NAM TÀI TRỢ CHO CÁC</Text>
-                    <Text>ĐƠN VỊ BÁO ĐÀI...</Text>
-                </View>
-                <View style = {styles.hozalSlide}>
-                    <Image
-                    style = {styles.imageSlideList}
-                    source = {require("../assets/image4.png")}
-                    />
-                    <Text>ACECOOK VIỆT NAM TÀI TRỢ CHO CÁC</Text>
-                    <Text>ĐƠN VỊ BÁO ĐÀI...</Text>
-                </View>
-            </ScrollView>
+                horizontal = {true}
+                data={data}
+                keyExtractor = {item => `key-${item.id}`}
+                // refreshControl = {
+                //     <RefreshControl
+                //         refreshing = {onRefresh}
+                //         onRefresh = {Call_RefreshControl}
+                //     />
+                // }
+                renderItem ={({item}) => (
+                    <View style = {styles.flatListItem}>
+                    <Image style = {styles.imageSlideList2} source={{ uri: item.url }} />
+                    <Text style ={styles.textPost}>{item.title}</Text>
+                    </View>
+                )}
+            />
         </View>
 
         <View style = {styles.container_2}>
 
             <Text style = {styles.headingText}>Nổi bật</Text>
-
-            <ScrollView
+            
+            <FlatList 
                 horizontal = {true}
                 showsHorizontalScrollIndicator = {false}
-            >
-                <View style = {styles.hozalSlide}>
-                    <Image
-                    style = {styles.imageSlideList}
-                    source = {require("../assets/image4.png")}
-                    />
-                    <Text>ACECOOK VIỆT NAM TÀI TRỢ CHO CÁC</Text>
-                    <Text>ĐƠN VỊ BÁO ĐÀI...</Text>
-                </View>
-                <View style = {styles.hozalSlide}>
-                    <Image
-                    style = {styles.imageSlideList}
-                    source = {require("../assets/image4.png")}
-                    />
-                    <Text>ACECOOK VIỆT NAM TÀI TRỢ CHO CÁC</Text>
-                    <Text>ĐƠN VỊ BÁO ĐÀI...</Text>
-                </View>
-            </ScrollView>
+                data={data2}
+                keyExtractor = {item => `key-${item.id}`}
+                renderItem = {({item}) => (
+                    <View style= {styles.flatListItem}>
+                        <Image style = {styles.imageSlideList2} source={{uri: item.url}}/>
+                        <Text style = {styles.textPost}>{item.title}</Text>
+                    </View>
+                )}
+            />
         </View>
 
         <View style = {styles.container_2}>
 
             <Text style = {styles.headingText}>Có thể bạn quan tâm</Text>
-
-            <ScrollView
+            <FlatList 
                 horizontal = {true}
                 showsHorizontalScrollIndicator = {false}
-            >
-                <View style = {styles.hozalSlide}>
-                    <Image
-                    style = {styles.imageSlideList}
-                    source = {require("../assets/image4.png")}
-                    />
-                    <Text>ACECOOK VIỆT NAM TÀI TRỢ CHO CÁC</Text>
-                    <Text>ĐƠN VỊ BÁO ĐÀI...</Text>
-                </View>
-                <View style = {styles.hozalSlide}>
-                    <Image
-                    style = {styles.imageSlideList}
-                    source = {require("../assets/image4.png")}
-                    />
-                    <Text>ACECOOK VIỆT NAM TÀI TRỢ CHO CÁC</Text>
-                    <Text>ĐƠN VỊ BÁO ĐÀI...</Text>
-                </View>
-            </ScrollView>
+                data = {data3}
+                keyExtractor = {item => `key-${item.id}`}
+                renderItem = {({item}) => (
+                    <View style = {styles.flatListItem}>
+                        <Image style = {styles.imageSlideList2} source={{uri: item.url}} />
+                        <Text style = {styles.textPost}>{item.title}</Text>
+                    </View>
+                )}
+            
+            />
+            
         </View>            
 
         </ScrollView></>
@@ -197,8 +231,24 @@ const styles = StyleSheet.create({
         width: "100%",
         borderRadius: 10,
       },
+      imageSlideList2:{
+        width: 260,
+        height: 160,
+        borderRadius: 10,
+      },
       headingText:{
         fontSize: 20,
         fontWeight: "500"
+      },
+      flatListItem: {
+        flexDirection: "column",
+        paddingTop: 5,
+        paddingRight: 20
+      },
+      textPost: {
+        width: 260,
+        flex: 1,
+        flexDirection: "column",
+        paddingTop: 10
       }
 })

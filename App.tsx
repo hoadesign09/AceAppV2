@@ -6,9 +6,9 @@ import { createAppContainer } from 'react-navigation'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
 import MainScreen from './components/MainScreen'
-import TestApi from './TestFunc/TestApi'
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import LoginMain from "./components/LoginMain"
+import LoginMain from "./components/LoginMain";
+//import Geolocation from "./TestFunc/Geolocation";
 
 export default function App() {
 
@@ -29,7 +29,7 @@ export default function App() {
   }
 
   return(
-        <LoginMain/>
+        < LoginMain />
   )
 }
 
