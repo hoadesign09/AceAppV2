@@ -3,7 +3,8 @@ import {  Button, TextInput, Image, View, Text, TouchableOpacity, StyleSheet, Al
 import { StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native" 
 import MainScreen from "./MainScreen";
-//import { AuthContext } from "../context/AuthContext";
+// import { AuthContext } from "../context/AuthContext";
+// //import { AuthContext } from "../context/AuthContext";
 
 export default function Login ({navigation}) {
   const [email, setEmail] = useState("");
@@ -34,7 +35,7 @@ export default function Login ({navigation}) {
 
         <Button
           title="Login"
-          onPress={() =>  { navigation.navigate("MainScreen")}}
+          onPress={() =>  {navigation.navigate("MainScreen")}}
         />
 
         <View style={{flexDirection: 'row', marginTop: 20}}>
@@ -71,7 +72,6 @@ const styles = StyleSheet.create({
   logo: {
     width: "90%",
     height: "20%",
-    // flexDirection: "row",
-    // alignItems: "center"
+
   }
 });

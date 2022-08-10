@@ -13,7 +13,7 @@ import {
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import { RNCamera } from 'react-native-camera';
 
-export default class ScanScreen extends Component {
+export default class QRCodeTest extends Component {
   onSuccess = e => {
     Linking.openURL(e.data).catch(err =>
       console.error('An error occured', err)
@@ -62,4 +62,4 @@ const styles = StyleSheet.create({
   }
 });
 
-AppRegistry.registerComponent('default', () => ScanScreen);
+//AppRegistry.registerComponent('default', () => QRCodeTest);
