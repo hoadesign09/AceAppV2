@@ -2,13 +2,13 @@ import React, {useContext, useState} from "react";
 import { Button, TextInput, Image, View, Text, TouchableOpacity, StyleSheet, Alert} from "react-native";
 import { StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native" 
-//import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../context/AuthContext";
 
 export default function SignUp ({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  //const { register } = useContext(AuthContext);
+  const { createInfo } = useContext(AuthContext);
 
   return (
     <View style={styles.container}>
@@ -35,7 +35,8 @@ export default function SignUp ({ navigation }) {
         <Button
           title="Sign Up"
           onPress={ () => {
-            Alert.alert("We haven't Data in this App! So sorry! Please try again later!")
+            createInfo(name, email, password)
+            //Alert.alert("We haven't Data in this App! So sorry! Please try again later!")
           } } />
 
         <View style={{ flexDirection: "row", marginTop: 20 }}>

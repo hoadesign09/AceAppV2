@@ -5,14 +5,17 @@ import { createSwitchNavigator, createAppContainer } from 'react-navigation'
 import Login from './Login'
 import SignUp from './SignUp'
 import MainScreen from './MainScreen'
+import { AuthProvider } from '../context/AuthContext'
 // create our app's navigation stack
 
 const map = createSwitchNavigator(
+
   {
     Login,
     SignUp,
     MainScreen
   },
+
   {
     initialRouteName: 'Login'
   }

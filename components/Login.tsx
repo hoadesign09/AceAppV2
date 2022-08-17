@@ -3,15 +3,14 @@ import {  Button, TextInput, Image, View, Text, TouchableOpacity, StyleSheet, Al
 import { StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native" 
 import MainScreen from "./MainScreen";
-// import { AuthContext } from "../context/AuthContext";
-// //import { AuthContext } from "../context/AuthContext";
-
+import { AuthContext } from "../context/AuthContext";
 export default function Login ({navigation}) {
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {getInfo, isLoading} = useContext(AuthContext);
 
-
-    
+  
   return (
     <View style={styles.container}>
         <Image 
@@ -35,7 +34,11 @@ export default function Login ({navigation}) {
 
         <Button
           title="Login"
-          onPress={() =>  {navigation.navigate("MainScreen")}}
+          onPress={() =>  
+            {
+              navigation.navigate("MainScreen")
+              //getInfo(email, password);
+          }}
         />
 
         <View style={{flexDirection: 'row', marginTop: 20}}>

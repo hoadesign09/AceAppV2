@@ -17,10 +17,10 @@ class QRCodeTest extends Component {
   makeSlideOutTranslation(translationType, fromValue) {
     return {
       from: {
-        [translationType]: SCREEN_WIDTH * -0.18
+        [translationType]: SCREEN_WIDTH * 0.23
       },
       to: {
-        [translationType]: fromValue
+        [translationType]: SCREEN_WIDTH * -0.23
       }
     };
   }
@@ -34,7 +34,7 @@ class QRCodeTest extends Component {
         customMarker={
           <View style={styles.rectangleContainer}>
             <View style={styles.topOverlay}>
-              <Text style={{ fontSize: 30, color: "white" }}>
+              <Text style={{ fontSize: 30, color: "black" }}>
                 QR CODE SCANNER
               </Text>
             </View>
@@ -43,16 +43,11 @@ class QRCodeTest extends Component {
               <View style={styles.leftAndRightOverlay} />
 
               <View style={styles.rectangle}>
-                <Icon
-                  name="ios-qr-scanner"
-                  size={SCREEN_WIDTH * 0.73}
-                  color={iconScanColor}
-                />
                 <Animatable.View
                   style={styles.scanBar}
                   direction="alternate-reverse"
                   iterationCount="infinite"
-                  duration={1700}
+                  duration={2000}
                   easing="linear"
                   animation={this.makeSlideOutTranslation(
                     "translateY",
@@ -72,7 +67,7 @@ class QRCodeTest extends Component {
   }
 }
 
-const overlayColor = "rgba(0,0,0,0.5)"; // this gives us a black color with a 50% transparency
+const overlayColor = "white";//"rgba(0,0,0,0.5)"; // this gives us a black color with a 50% transparency
 
 const rectDimensions = SCREEN_WIDTH * 0.65; // this is equivalent to 255 from a 393 device width
 const rectBorderWidth = SCREEN_WIDTH * 0.005; // this is equivalent to 2 from a 393 device width
@@ -82,7 +77,6 @@ const scanBarWidth = SCREEN_WIDTH * 0.46; // this is equivalent to 180 from a 39
 const scanBarHeight = SCREEN_WIDTH * 0.0025; //this is equivalent to 1 from a 393 device width
 const scanBarColor = "#22ff00";
 
-const iconScanColor = "blue";
 
 const styles = {
   rectangleContainer: {
