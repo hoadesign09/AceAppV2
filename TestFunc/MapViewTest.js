@@ -174,14 +174,6 @@ const MapViewTest = () => {
           }}>
           React Native Geolocation
         </Text>
-        <Text
-          style={{
-            fontSize: 16,
-            textAlign: 'center',
-            color: 'grey'
-          }}>
-          www.aboutreact.com
-        </Text>
       </View>
     </SafeAreaView>
   );
