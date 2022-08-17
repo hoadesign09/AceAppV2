@@ -95,6 +95,7 @@
 			);
 			name = AceAppV2;
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
@@ -488,6 +489,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z24692ZFX2;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = AceAppV2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -514,6 +516,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z24692ZFX2;
 				INFOPLIST_FILE = AceAppV2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

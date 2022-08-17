@@ -11,6 +11,8 @@ import WishList from "./Account_Details/WishList";
 import YourTicket from "./Account_Details/YourTicket";
 import FindSup from "./Account_Details/FindSup";
 import Reply from "./Account_Details/Reply";
+import MapViewTest from "../TestFunc/MapViewTest";
+import QRCodeTest from "../TestFunc/QRCodeTest";
 
  function AccountHome( {navigation} ) {
     return(
@@ -108,6 +110,24 @@ import Reply from "./Account_Details/Reply";
             <View style={styles.genarel}>
                 <TouchableOpacity
                 style = {styles.buttonlink}
+                onPress = {() => navigation.navigate("QR")}>
+                    <Text> Check QR code</Text>
+                </TouchableOpacity>
+                <Icon style ={styles.iconStyles} name= "qrcode" size ={20} color = "#156ebf" />
+            </View>
+            <View style={styles.hrline}></View>
+            <View style={styles.genarel}>
+                <TouchableOpacity
+                style = {styles.buttonlink}
+                onPress = {() => navigation.navigate("Location")}>
+                    <Text> Vị trí</Text>
+                </TouchableOpacity>
+                <Icon style ={styles.iconStyles} name= "location-arrow" size ={20} color = "#156ebf" />
+            </View>
+            <View style={styles.hrline}></View>
+            <View style={styles.genarel}>
+                <TouchableOpacity
+                style = {styles.buttonlink}
                 onPress = {() => Alert.alert("We so sorry for that! But it doesn't work! Please try again later!")}>
                     <Text> Đăng xuất</Text>
                 </TouchableOpacity>
@@ -135,6 +155,8 @@ import Reply from "./Account_Details/Reply";
                 <tab.Screen name="Ticket" component={YourTicket} />
                 <tab.Screen name="Sup" component={FindSup} />
                 <tab.Screen name="Rep" component={Reply} />
+                <tab.Screen name="QR" component={QRCodeTest} />
+                <tab.Screen name="Location" component={MapViewTest} />
             </tab.Navigator>
             </>
 
