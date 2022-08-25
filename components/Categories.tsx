@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from "react";
-import {Text, View, StyleSheet, ScrollView, Image, Dimensions, RefreshControl} from "react-native";
+import {Text, View, StyleSheet, ScrollView, Image, Dimensions, RefreshControl, TouchableOpacity} from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import SearchBar from 'react-native-platform-searchbar';
-import { Autoplay } from "swiper";
 
 const {width} = Dimensions.get("window");
 
@@ -37,30 +36,36 @@ export default function Categories() {
       }
 
     return(
-   <><View style={styles.SearchBar}>
-            <SearchBar
-                value={value}
-                onChangeText={setValue}
-                placeholder="Search" />
+        <><View style={styles.SearchBar}>
+                    <SearchBar
+                        value={value}
+                        onChangeText={setValue}
+                        placeholder="Search" />
 
-    </View><View style={styles.hrline}></View>
+            </View><View style={styles.hrline}></View>
 
-    <FlatList 
-        style = {styles.container_2}
-        data = {data}
-        keyExtractor = {item => `key-${item.id}` }
-        refreshControl={
-            <RefreshControl 
-                refreshing= {onRefresh}
-                onRefresh = {Call_RefreshControl}
-            />
-        }
-        renderItem = {({item}) => (
-            <View style = {styles.imagelist}>
-                <Image style ={styles.image} source={{ uri: item.url }} />
-            </View>
-        )}
-    />
+            <FlatList 
+                style = {styles.container_2}
+                showsVerticalScrollIndicator = {false}
+                data = {data}
+                keyExtractor = {item => `key-${item.id}` }
+                refreshControl={
+                    <RefreshControl 
+                        refreshing= {onRefresh}
+                        onRefresh = {Call_RefreshControl}
+                    />
+                }
+                renderItem = {({item}) => (
+                    <>
+                    <TouchableOpacity 
+                        style={styles.imagelist} 
+                        onPress = {() => console.log (item.info)}
+                    >
+                        <Text style={styles.title}>{item.title}</Text>
+                        <Image style={styles.image} source={{ uri: item.url }} />                    
+                    </TouchableOpacity>
+                    </>
+                )}/>
             </>
     )
 }
@@ -71,6 +76,7 @@ const styles = StyleSheet.create({
     container_2: {
         backgroundColor: "#FFFFFF",
         paddingLeft: 10,
+        paddingRight: 10
     },
     SearchBar: {
         backgroundColor: "#FFFFFF",
@@ -84,19 +90,24 @@ const styles = StyleSheet.create({
         paddingTop: 10,
         backgroundColor: "#FFFFFF"
       },
-    SlideCate: {
-        paddingTop: 15
-    },
-    imageSlideCate: {
-        width,
-        height: 150
-    },
     image:{
         height: 150,
         width,
-        borderRadius: 10
+        borderRadius: 10,
+
     },
     imagelist: {
-        paddingTop: 10
+        paddingTop: 10,
+    },
+    title: {
+        fontWeight: "500",
+        fontSize: 20,
+        textAlign: "center",
+        textDecorationColor: "line-through"
+    },
+    titletext: {
+        backgroundColor: "#C4C4C49C",
+        width: "90%",
     }
+
 })

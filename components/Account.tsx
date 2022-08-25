@@ -145,9 +145,8 @@ import QRCodeTest from "../TestFunc/QRCodeTest";
     function Account () {
         return(
             <><tab.Navigator
-                screenOptions={{headerShown: false}}
                 initialRouteName="Home">
-                <tab.Screen name="Home" component={AccountHome} />
+                <tab.Screen name="Home" component={AccountHome} options = {{headerShown: false}}/>
                 <tab.Screen name="UserInfo" component={UserInfo} />
                 <tab.Screen name="General" component={GeneralInfo} />
                 <tab.Screen name="Notis" component={Notis} />

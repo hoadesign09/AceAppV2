@@ -29,13 +29,13 @@ export default function WishList ( ) {
     
 
     return(
-        <><SafeAreaView style={styles.SearchBar}>
+        <><View style={styles.SearchBar}>
             <SearchBar
                 value={value}
                 onChangeText={setValue}
                 placeholder="Search" />
 
-        </SafeAreaView>
+        </View>
         
         <View style={styles.hrline}></View>
 
@@ -64,9 +64,9 @@ const styles = StyleSheet.create({
     },
     SearchBar: {
         backgroundColor: "#FFFFFF",
-        paddingTop: 50,
-        paddingRight: 10,
-        paddingLeft: 10
+        paddingTop: 10,
+        paddingRight: 15,
+        paddingLeft: 15
     },
     hrline: {
         borderBottomColor: "#f0f2f5",

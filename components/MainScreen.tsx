@@ -31,7 +31,7 @@ export default function MainScreen() {
   );
   };
     return(
-        <NavigationContainer>
+      <NavigationContainer>
             <Tab.Navigator  
             screenOptions={{ headerShown: false }}
             initialRouteName = "Home"
@@ -64,10 +64,6 @@ export default function MainScreen() {
                   tabBarIcon: ({size, color}) => (<Icon name={"user"} color={color} size={size} />)
               }}
                 />
-                {/* <Tab.Screen
-                name = "Location"
-                component={Location}
-                /> */}
             </Tab.Navigator>
         </NavigationContainer>
 

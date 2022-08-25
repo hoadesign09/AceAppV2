@@ -29,13 +29,14 @@ export default function GeneralInfo () {
 
 
     return(
-            <><View style={styles.ButtonSave}>
+        <><View style={styles.ButtonSave}>
             <TouchableOpacity
                 style={styles.buttonlink}
                 onPress={() => Alert.alert("Your infomation saved!")}>
                 <Text style={styles.linkText}>Lưu</Text>
             </TouchableOpacity>
-        </View><View style={styles.hrline}></View><View style={styles.container}>
+        </View>
+        <View style={styles.container}>
                 <View style={styles.viewInput}>
                     <Text>Họ và tên</Text>
                     <TextInput
@@ -105,7 +106,7 @@ const styles = StyleSheet.create({
     },
     ButtonSave: {
         backgroundColor: "#FFFFFF",
-        paddingTop: 60,
+        paddingTop: 10,
         flexDirection: "row",
         justifyContent: "flex-end",
         paddingRight: 15
@@ -120,12 +121,6 @@ const styles = StyleSheet.create({
     },
     linkText: {
         color: "#ffffff"
-    },
-    hrline: {
-        borderBottomColor: '#f0f2f5',
-        borderBottomWidth: 1,
-        backgroundColor: "#FFFFFF",
-        paddingTop: 10
     },
     viewInput:{
         paddingTop: 10

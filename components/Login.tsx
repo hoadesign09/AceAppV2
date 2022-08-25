@@ -1,9 +1,7 @@
 import React, {useContext, useState} from "react";
 import {  Button, TextInput, Image, View, Text, TouchableOpacity, StyleSheet, Alert} from "react-native";
-import { StatusBar } from "react-native";
-import { NavigationContainer } from "@react-navigation/native" 
-import MainScreen from "./MainScreen";
 import { AuthContext } from "../context/AuthContext";
+
 export default function Login ({navigation}) {
 
   const [email, setEmail] = useState("");

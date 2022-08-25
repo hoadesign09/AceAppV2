@@ -67,9 +67,9 @@ const styles = StyleSheet.create({
     },
     SearchBar: {
         backgroundColor: "#FFFFFF",
-        paddingTop: 50,
-        paddingRight: 10,
-        paddingLeft: 10
+        paddingTop: 10,
+        paddingRight: 15,
+        paddingLeft: 15
     },
     hrline: {
         borderBottomColor: "#f0f2f5",

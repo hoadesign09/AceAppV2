@@ -1,12 +1,13 @@
-import React from "react";
-import {View, Text, StyleSheet} from "react-native";
+import React, { useEffect, useState } from "react";
+import {View, Text, StyleSheet, FlatList, Image} from "react-native";
 
 export default function Notis ( ) {
+
+    
+    
     return(
-        <View style = {styles.container}>
-            <Text>
-                Test "Notifications" the example
-            </Text>
+        <View style={styles.container}>
+            <Text> Notication Demo</Text>
         </View>
     );
 }
@@ -16,9 +17,10 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "row",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
     },
     test: {
 
-    }
+    },
+
 })
