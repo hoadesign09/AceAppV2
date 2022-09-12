@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import {View, Text,FlatList,Image, StyleSheet, RefreshControl, Button} from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import SearchBar from "react-native-platform-searchbar";
+import {View, Text,FlatList,Image, StyleSheet, RefreshControl, Button, TouchableOpacity, Alert} from "react-native";
 import axios from "axios";
+import { TextInput } from "react-native-gesture-handler";
 
 export default function UserInfo () {
-    const [data, setData] = useState()
+    const [data, setData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [value, setValue] = useState()
     const [onRefresh, setOnRefresh] = useState(false);
+    const [password, setPassword] = useState()
+    const [repassword, resetPassword] = useState()
 
 
     const getUserDetail = () => {
@@ -34,7 +35,7 @@ export default function UserInfo () {
 
 
     return(
-        <><Text style = {styles.h1}> User Detail Check Information and Edit</Text>
+        <>
             
             <FlatList 
                 style = {styles.container}
@@ -48,17 +49,42 @@ export default function UserInfo () {
                     />
                 }
                 renderItem = {({item}) => (
-                    <View style = {styles.userContainer}>
-                        <Text style = {styles.textContent}>{item.full_name}</Text>
+                    <><View style = {styles.userContainer}>
                         <Image style = {styles.avt} source={{uri: item.avt}}/>
-                        <Button 
-                            title="Đổi Avatar"
-                            onPress={() => console.log("change avt")}
-                        /> 
-                        
+                        <View style = {styles.detail}>
+                            <Text style = {styles.textContent}>{item.full_name}</Text>
+                            <TouchableOpacity
+                                style = {styles.buttonlink}
+                                onPress={() => console.log("change avt")}
+                            >
+                                <Text style = {{fontSize: 18, color: "#fff"}}>Đổi Avata</Text>
+                            </TouchableOpacity>
+                        </View> 
                     </View>
+                    <Text style = {styles.h2}>Thay đổi mật khẩu</Text>
+                    <View>
+                        <TextInput
+                            style = {styles.input}
+                            value = {password}
+                            placeholder = "TYPE YOUR NEW PASSWORD"
+                            onChangeText={(password) => setPassword(password)}
+                        />
+                        <TextInput
+                            style = {styles.input}
+                            value = {repassword}
+                            placeholder = "RE-TYPE YOUR NEW PASSWORD"
+                            onChangeText={(repassword) => resetPassword(repassword)}
+                        />
+                        <TouchableOpacity
+                            style={styles.buttonlink}
+                            onPress={() => Alert.alert("Your infomation saved!")}>
+                            <Text style={styles.linkText}>Lưu</Text>
+                        </TouchableOpacity>
+                    </View>
+                </>
                 )}     
             />
+            
         </>
 
     )
@@ -92,22 +118,48 @@ const styles = StyleSheet.create({
       },
       userContainer: {
         flexDirection: "row",
-        paddingTop: 20,
+        paddingTop: 50,
       },
       textContent: {
         flex: 1,
         flexDirection: "row",
-        alignSelf: "center"
+        alignSelf: "center", 
+        fontSize: 18
     },
     avt :{
-        height: 50,
-        width: 50
+        height: 60,
+        width: 60
     },
-    h1: {
+    detail: {
+        paddingLeft: 20
+    },
+    h2: {
         backgroundColor: "#FFFFFF", 
-        paddingTop: 20, 
+        paddingTop: 100, 
         fontWeight: "500", 
-        fontSize: 20, 
-        textAlign: "center"
-    }
+        fontSize: 18,
+        paddingBottom: 20
+    },
+    input: {
+        marginBottom: 12,
+        borderWidth: 1,
+        borderColor: '#bbb',
+        borderRadius: 5,
+        paddingHorizontal: 14,
+        height: 50
+    },
+    buttonlink: {
+        borderWidth: 1,
+        borderColor: "#bbb",
+        paddingHorizontal: 20,
+        paddingVertical: 5,
+        backgroundColor: "#094A96",
+        borderRadius: 5,
+        width: 120,
+    },
+    linkText: {
+        color: "#ffffff",
+        textAlign: "center",
+        fontSize: 20
+    },
 })
