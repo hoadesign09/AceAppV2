@@ -1,9 +1,10 @@
 
-import React, { useContext, useEffect, useState } from 'react'
+import * as React from 'react'
 import { StyleSheet, Platform, Image, Text, View, ActivityIndicator } from 'react-native'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import LoginMain from "./components/LoginMain"
 import { AuthContext, AuthProvider } from './context/AuthContext'
+import { useContext, useEffect, useState } from 'react'
 export default function App() {
 
   const [isLoading, setIsLoading] = useState(true);
