@@ -33,15 +33,8 @@ class QRCodeTest extends Component {
         cameraStyle={{ height: SCREEN_HEIGHT }}
         customMarker={
           <View style={styles.rectangleContainer}>
-            <View style={styles.topOverlay}>
-              <Text style={{ fontSize: 30, color: "black" }}>
-                QR CODE SCANNER
-              </Text>
-            </View>
-
             <View style={{ flexDirection: "row" }}>
               <View style={styles.leftAndRightOverlay} />
-
               <View style={styles.rectangle}>
                 <Animatable.View
                   style={styles.scanBar}
@@ -55,10 +48,8 @@ class QRCodeTest extends Component {
                   )}
                 />
               </View>
-
               <View style={styles.leftAndRightOverlay} />
             </View>
-
             <View style={styles.bottomOverlay} />
           </View>
         }
