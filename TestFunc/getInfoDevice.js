@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {ScrollView, StyleSheet, Text} from 'react-native';
 import DeviceInfo from 'react-native-device-info';
-import { checkVersion } from "react-native-check-version";
+//import { checkVersion } from "react-native-check-version";
 import {getManufacturer} from 'react-native-device-info';
  
 const GetInfoDevice = (props) => {
@@ -14,7 +14,7 @@ const GetInfoDevice = (props) => {
   const getDataAsync = async () => {
     let deviceJSON = {};
     try {
-      deviceJSON.version = await checkVersion();
+      //deviceJSON.version = await DeviceInfo.checkVersion();
       deviceJSON.manufacturer = await getManufacturer();
       deviceJSON.buildId = await DeviceInfo.getBuildId();
       deviceJSON.isCameraPresent = 
