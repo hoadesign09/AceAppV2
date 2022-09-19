@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Dimensions, Text } from "react-native";
+import { View, Dimensions, Text, Linking } from "react-native";
 import QRCodeScanner from "react-native-qrcode-scanner";
 import Icon from "react-native-vector-icons/Ionicons";
 import * as Animatable from "react-native-animatable";
@@ -10,8 +10,10 @@ const SCREEN_WIDTH = Dimensions.get("window").width;
 console.disableYellowBox = true;
 
 class QRCodeTest extends Component {
-  onSuccess(e) {
-    alert(e);
+  onSuccess = e => {
+    Linking.openURL(e.data).catch(err =>
+      console.error("An error when scan", err)
+      );
   }
 
   makeSlideOutTranslation(translationType, fromValue) {

@@ -394,7 +394,7 @@ PODS:
     - React-Core
   - RNCPushNotificationIOS (1.10.1):
     - React-Core
-  - RNDeviceInfo (10.1.2):
+  - RNDeviceInfo (10.2.0):
     - React-Core
   - RNGestureHandler (2.5.0):
     - React-Core
@@ -658,7 +658,7 @@ SPEC CHECKSUMS:
   ReactCommon: 7f86326b92009925c6dcf93f8e825060171c379f
   ReactNativeGetLocation: d6b15cb2a2023ab7703f756501bad86d3ecf6fea
   RNCPushNotificationIOS: 87b8d16d3ede4532745e05b03c42cff33a36cc45
-  RNDeviceInfo: 4a2d995e05823cf364e8791bfa450d8f2f461c42
+  RNDeviceInfo: 8b83e99e290deaf1bab71673cc636776ef647b6f
   RNGestureHandler: bad495418bcbd3ab47017a38d93d290ebd406f50
   RNPermissions: de7b7c3fe1680d974ac7a85e3e97aa539c0e68ea
   RNScreens: 4a1af06327774490d97342c00aee0c2bafb497b7
