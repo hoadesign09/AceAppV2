@@ -10,12 +10,7 @@ import { checkVersion } from "react-native-check-version";
 export default async function App() {
 
   const [isLoading, setIsLoading] = useState(true);
-  const version = await checkVersion();
-  console.log("Got version info:", version);
-
-  if (version.needsUpdate) {
-    console.log(`App has a ${version.updateType} update pending.`);
-  }
+  
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
@@ -30,7 +25,12 @@ export default async function App() {
     )
   }
 
+  const version = await checkVersion();
+  console.log("Got version info:", version);
 
+  if (version.needsUpdate) {
+    console.log(`App has a ${version.updateType} update pending.`);
+  }
 
   return(
     <AuthProvider>
