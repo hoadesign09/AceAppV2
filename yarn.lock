@@ -6830,7 +6830,7 @@ react-native-camera@^4.2.1:
 
 react-native-check-version@^1.0.17:
   version "1.0.17"
-  resolved "https://registry.yarnpkg.com/react-native-check-version/-/react-native-check-version-1.0.17.tgz#c78df2ecde922b8a7ea373934dcfa6a39a6dae2b"
+  resolved "https://registry.npmjs.org/react-native-check-version/-/react-native-check-version-1.0.17.tgz"
   integrity sha512-tvbNAsWtWNP3PFnxNJQuD17v5pvjtFQx9s4/OSnzBeDfr9NuMVoLBrnu9z6/PDlCzaVHQ4NujtfCTt9PM0Efig==
   dependencies:
     axios "^0.27.2"
@@ -6847,7 +6847,7 @@ react-native-codegen@^0.70.5:
 
 react-native-device-info@^10.2.0:
   version "10.2.0"
-  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-10.2.0.tgz#be17a1b86cabbe53f4adde96b662204784d3cefd"
+  resolved "https://registry.npmjs.org/react-native-device-info/-/react-native-device-info-10.2.0.tgz"
   integrity sha512-7VycjFGaLKIZLDwCxSK5cWZdDOGqz3QxdGF57B/a4bW3gkrUFa5Gf0v7fUR9YL/VBJM0UwDiDH7pR9hkMQt+vw==
 
 react-native-geolocation-service@^5.3.0:
